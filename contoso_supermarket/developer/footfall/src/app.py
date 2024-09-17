@@ -161,7 +161,7 @@ def index():
 
 @app.route("/shopper")
 def shopper():
-    return render_template('shopper/landing.html')
+    return render_template('shopper/landing2.html')
 
 @app.route("/inference", methods=["POST"])
 def runInference():
