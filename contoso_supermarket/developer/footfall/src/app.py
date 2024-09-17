@@ -42,7 +42,7 @@ def run_inference(det_model_path, det_model, source, device_value,x1,y1,x2,y2):
     write("Content-type: text/html\r\n")
     core = ov.Core()
     det_ov_model = core.read_model(det_model_path)
-    ov_config = {}
+    ov_config = {} 
 
     if device_value != "CPU":
         det_ov_model.reshape({0: [1, 3, 640, 640]})
@@ -158,6 +158,10 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     return render_template('index.html')
+
+@app.route("/shopper")
+def shopper():
+    return render_template('shopper/landing.html')
 
 @app.route("/inference", methods=["POST"])
 def runInference():
